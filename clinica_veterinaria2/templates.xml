@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+		<!-- Visualizacion de cada registro de gato -->
+		<record id="gato_gato_tree_view" model="ir.ui.view">
+			<field name="name">gato.gato.gato.tree</field>
+			<field name="model">gato.gato</field>
+			<field name="arch" type="xml">
+				<tree string="Gato">
+					<field name="name"/>
+					<field name="nacimiento"/>
+					<field name="descripcion"/>
+				</tree>
+			</field>
+		</record>
+		
+		<!-- Visualizacion de cada registro de perro -->
+		<record id="perro_perro_perro_view" model="ir.ui.view">
+			<field name="name">gato.gato.gato.tree</field>
+			<field name="model">perro.perro</field>
+			<field name="arch" type="xml">
+				<tree string="Perro">
+					<field name="name"/>
+					<field name="nacimiento"/>
+					<field name="descripcion"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Formulario para los Gatos -->
+		<record id="view_gato_gato_form" model="ir.ui.view">
+		  <field name="name">gato.gato.form</field>
+		  <field name="model">gato.gato</field>
+		  <field name="arch" type="xml">
+			<form string="Gatoa">
+				<field name="foto" widget="image" class="oe_avatar"/>
+				<div class="oe_title">
+					<label class="oe_edit_only" for="name" string="Nombre de gato"/>
+					<h1><field name="name" placeholder="Nombre"/></h1>
+				</div>
+				<notebook>
+					<page string="Informacion General" name="general_information">
+						<group>
+							<field name="descripcion" placeholder="Descripcion"/>
+							<field name="edad" placeholder="Edad" class="oe_inline"/>
+							<field name="nacimiento" placeholder="Nacimiento" class="oe_inline"/>
+						</group>
+					</page>
+					<page string="Vacunas" name="vacunas">
+					
+					</page>
+				</notebook>
+			</form>
+		  </field>
+		</record>
+
+		<!-- Accion de Gatos -->
+        <record model="ir.actions.act_window" id="gatos_data_list_action">
+            <field name="name">Gatos</field>
+            <field name="res_model">gato.gato</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Inserta el primer Gato</p>
+            </field>
+        </record>
+        
+        <!-- Accion de Perros -->
+        <record model="ir.actions.act_window" id="perros_data_list_action">
+            <field name="name">Perros</field>
+            <field name="res_model">perro.perro</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Inserta el primer Perro</p>
+            </field>
+        </record>
+
+        <!-- Menu superior: no parent -->
+        <menuitem id="main_menu" name="Veterinaria"/>
+        
+        <!-- Submenus principales -->
+        <menuitem id="gatos_menu" name="Animales"
+                  parent="main_menu"/>
+                  
+        <!-- Menus secundarios -->
+        <menuitem id="gatos_overview_menu" name="Ver Gatos" parent="gatos_menu"
+                  action="gatos_data_list_action"/>
+        <menuitem id="perros_overview_menu" name="Ver Perros" parent="gatos_menu"
+                  action="perros_data_list_action"/>
+    </data>
+</openerp>

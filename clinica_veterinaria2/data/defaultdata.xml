@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+	<!--This will create some default records if they do not exist yet. We will always need these so these are auto-rendered. -->
+        <record id="first_gato_item" model="gato.gato">
+            <field name="name">Garfield</field>
+            <field name="descripcion">Naranja, rayado y gordo.</field>
+            <field name="edad">6</field>
+            <field name="nacimiento">01/01/1978</field>
+        </record>
+        <record id="second_gato_item" model="gato.gato">
+            <field name="name">Isidoro</field>
+            <field name="descripcion">En el mundo de los gatos Isidoro es el amo.</field>
+            <field name="edad">8</field>
+            <field name="nacimiento">01/01/1975</field>
+        </record>
+        <record id="first_perro_item" model="perro.perro">
+            <field name="name">Scalibur</field>
+            <field name="descripcion">Sacrificado por tener Ebola.</field>
+            <field name="edad">3</field>
+            <field name="nacimiento">01/01/2005</field>
+        </record>
+        <record id="second_perro_item" model="perro.perro">
+            <field name="name">Bolt</field>
+            <field name="descripcion">Corre como el viento.</field>
+            <field name="edad">11</field>
+            <field name="nacimiento">01/01/2018</field>
+        </record>
+    </data>
+</openerp>
